@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Contact</Title>
+    </head>
+    <body>
+        <form action="showcontact.html" method="GET">
+            <label for="fname">Voornaam:</label>
+            <input type="text" id="fname" name="fname"> <br> <br>
+
+            <label for="lname">Familienaam:</label>
+            <input type="text" id="lname" name="lname"> <br> <br>
+            
+            <label for="email">email adres:</label>
+            <input type="text" id="email" name="email"> <br> <br>
+            
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>  <br> <br>
+
+            <input type="submit" value="Submit">
+
+        </form>
+
+        <div>
+            <iframe width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp=51.03673420810151~3.7358723449455677&lvl=18&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+            </iframe>
+            <div style="white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
+               <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=51.03673420810151~3.7358723449455677&amp;sty=r&amp;lvl=18&amp;FORM=MBEDLD">Grotere kaart weergeven</a> &nbsp; | &nbsp;
+               <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=51.03673420810151~3.7358723449455677&amp;sty=r&amp;lvl=18&amp;rtp=~pos.51.03673420810151_3.7358723449455677____&amp;FORM=MBEDLD">Routebeschrijving weergeven</a>
+           </div>
+       </div>
+    </body>
+</html>
