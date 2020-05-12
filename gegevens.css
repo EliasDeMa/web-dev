@@ -1,10 +1,10 @@
 body {
-    background-color: honeydew;
+    background-color: #f4fce7;
 }
 
 .invullen {  
     float: left;
-    background-color: lightblue!important;
+    background-color: #d1efe3;
     margin: auto;
     width: 60%;
     padding: 10px;
@@ -36,7 +36,7 @@ div > button[type="submit"] {
     color: white;
     height: 30px;
     width: 150px;
-    background-color: rgb(2, 75, 51);
+    background-color: #7ecdd4;
 }
 
 label {

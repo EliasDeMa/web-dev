@@ -1,7 +1,7 @@
 table > tbody:first-child > tr:first-child > :nth-child(2n + 3){
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: darkcyan;
+    background-color: #3b5762;
 }
 
 table > tbody:first-child > tr:first-child > :first-child {
@@ -11,19 +11,20 @@ table > tbody:first-child > tr:first-child > :first-child {
 table > tbody:first-child > tr:first-child > :nth-child(2n + 2){
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: steelblue;
+    background-color: #5c7c79;
 }
 
 table > tbody:first-child > :nth-child(n + 2) {
-    background-color: rgb(248, 240, 228);
+    background-color: #fdfdfd;
 }
 
 table > tbody:first-child > :nth-child(2n + 3) > :not(:first-child)  {
-    background-color: rgb(168, 167, 167);
+    background-color: #f6f6f6;
 }
 
 table > tbody > :nth-child(n + 2) > :first-child {
-    background-color: lightgray;
+    
+    background-color: #efefef;
 }
 
 th, td {
