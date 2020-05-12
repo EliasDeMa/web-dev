@@ -1,0 +1,42 @@
+* {
+    background-color: #aad2ba;
+}
+
+#title {   
+    text-align: center;
+    font: italic;
+    border: 2px outset #6b8f71;
+    color: aliceblue;
+    font-size: x-large;
+}
+
+.center {  
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #272727;
+}
+
+.needed {
+    list-style: none;
+    color: #272727;
+}
+
+.needed > li {
+    padding: 4px;
+    font-size: large;
+}
+
+.ol-instructions {
+    color: #272727;
+    list-style-type: decimal-leading-zero;
+}
+
+.ol-instructions > li {
+    padding: 8px;
+    font-size: large;
+}
