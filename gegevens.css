@@ -2,6 +2,10 @@ body {
     background-color: #f4fce7;
 }
 
+header {
+    margin: 20px;
+}
+
 .invullen {  
     float: left;
     background-color: #d1efe3;
