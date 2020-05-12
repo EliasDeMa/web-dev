@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Invulgegevens</title>
+        <meta lang="nl">
+        <link rel="stylesheet" href="gegevens.css">
+    </head>
+    <body>
+        <header>
+            Vul het registratieformulier in. Velden met een * zijn verplicht.
+        </header>
+        <form action="GET">
+
+            <div class="invullen">
+                <h2>Accountgegevens</h2>
+                <label for="fname">Voornaam *</label>
+                <input type="text" required>
+                <br>
+                <br>
+                <label for="lname">Familienaam *</label>
+                <input type="text" required>
+                <br>
+                <br>
+                <label for="email">email adres *</label>
+                <input type="email" placeholder="name@example.com" required>
+                <br>
+                <br>
+                <label for="password">Passwoord *</label>
+                <input type="password" required>
+                <br>
+                <br>
+                <label for="password-conf">Bevestig passwoord *</label>
+                <input type="password" required>
+            </div>
+
+            <div class="invullen">
+                <h2>Adresgegevens</h2>
+                <label for="adres1">Adres 1 *</label>
+                <input type="text" required>
+                <br>
+                <br>
+                <label for="adres2">Adres 2</label>
+                <input type="text">
+                <br>
+                <br>
+                <label for="stad">Stad *</label>
+                <input type="text" required>
+                <br>
+                <br>
+                <label for="post">Postcode *</label>
+                <input type="text" required>
+            </div>
+
+            <div class="invullen">
+                <h2>Persoonlijke gegevens</h2>
+                <label for="adres1">Geboortedatum</label>
+                <input type="date">
+                <br>
+                <br>
+                <label for="adres2">Hoe tevreden ben je</label>
+                <input type="range">
+                <br>
+                <br>
+                <label for="stad">Man</label>
+                <input type="radio" name="gender">
+                <br>
+                <br>
+                <label for="stad">Vrouw</label>
+                <input type="radio" name="gender">
+                <br>
+                <br>
+                <label for="module">Kies een module:</label>
+
+                <select id="module">
+                  <option value="databanken">Databanken</option>
+                  <option value="prog">Programmeren</option>
+                  <option value="multi">Multimedia</option>
+                  <option value="asp">ASP.NET</option>
+                </select> 
+            </div>
+
+            <div class="invullen">
+                <button type="submit">Verzenden</button>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    background-color: honeydew;
+}
+
+.invullen {  
+    float: left;
+    background-color: lightblue!important;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    border: 3px solid;
+    border-radius: 25px;
+    border-color: white;
+}
+
+div.invullen > input {
+    float: right;
+    font-size: 15;
+    width: 70%;
+    border-radius: 25px;
+    border-style: none;
+}
+
+div.invullen > select {
+    float: right;
+    font-size: 15;
+    width: 70%;
+    border-style: none;
+}
+
+div > button[type="submit"] {
+    margin-left: 43%;
+    margin-right: 50%;
+    border-radius: 5px;
+    border-style: none;
+    color: white;
+    height: 30px;
+    width: 150px;
+    background-color: rgb(2, 75, 51);
+}
+
+label {
+    padding-right: 20px;
+}
