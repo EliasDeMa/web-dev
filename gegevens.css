@@ -32,11 +32,12 @@ div > button[type="submit"] {
     margin-left: 43%;
     margin-right: 50%;
     border-radius: 5px;
-    border-style: none;
+    border-style: solid;
     color: white;
     height: 30px;
     width: 150px;
-    background-color: #7ecdd4;
+    background-color: #8abeb2;
+    border-color: #7ecdd4;
 }
 
 label {
