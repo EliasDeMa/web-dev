@@ -1,0 +1,31 @@
+table > tbody:first-child > tr:first-child > :nth-child(2n + 3){
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: darkcyan;
+}
+
+table > tbody:first-child > tr:first-child > :first-child {
+    width: 25px;
+}
+
+table > tbody:first-child > tr:first-child > :nth-child(2n + 2){
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: steelblue;
+}
+
+table > tbody:first-child > :nth-child(n + 2) {
+    background-color: rgb(248, 240, 228);
+}
+
+table > tbody:first-child > :nth-child(2n + 3) > :not(:first-child)  {
+    background-color: rgb(168, 167, 167);
+}
+
+table > tbody > :nth-child(n + 2) > :first-child {
+    background-color: lightgray;
+}
+
+th, td {
+    padding: 5px;
+}
