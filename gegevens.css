@@ -5,12 +5,17 @@ body {
 .invullen {  
     float: left;
     background-color: #d1efe3;
-    margin: auto;
     width: 60%;
     padding: 10px;
     border: 3px solid;
     border-radius: 25px;
     border-color: white;
+    margin: 10px;
+}
+
+h2{
+    margin-top: -25px;
+    font-style: normal;
 }
 
 div.invullen > input {
