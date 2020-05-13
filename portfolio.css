@@ -1,0 +1,38 @@
+body {
+    background-color: aliceblue;
+    padding-top: 55px;
+}
+
+.jumbotron {
+    z-index: 10;
+}
+
+.jumbotron::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 300px;
+    width: 100%;
+    background-image:url('assets/besch2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 9;
+}
+
+
+
+.just-before-anchor {
+    padding-top: 50px;
+    margin-top: -50px;
+}
+
+.underline {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.row {
+    margin: 1rem;
+}
