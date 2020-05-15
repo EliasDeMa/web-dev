@@ -3,14 +3,9 @@ body {
     padding-top: 55px;
 }
 
-.dropdown {
+.btn {
     position: relative;
     top: 2.5px;
-    border:none;
-    background-color: inherit;
-}
-
-.btn {
     border:none;
     background-color: inherit;
     color: rgba(0,0,0,.5);
