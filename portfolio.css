@@ -28,8 +28,10 @@ body {
     opacity: 0.2;
     z-index: 9;
 }
-
-
+/* 
+.container:not(.nav-item) {
+    font-size: calc(1vw + 1vh);
+} */
 
 .just-before-anchor {
     padding-top: 50px;
