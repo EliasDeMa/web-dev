@@ -37,7 +37,7 @@ const sortLetters = (word) => {
 
 // 7
 const longestWord = (sentence) => {
-    let lengths = sentence.split(' ').map(l =>  l.length );
+    let lengths = sentence.split(' ').map(l =>  l.length);
     let index = lengths.findIndex(x => x === Math.max(...lengths));
 
     alert(`${sentence.split(' ')[index]} is the longest word`);
@@ -45,7 +45,9 @@ const longestWord = (sentence) => {
 
 // 8
 const repeatingLetter = (word) => {
-    let filtered = word.split('').filter(l => word.split(l).length - 1 == 1);
+    let filtered = word
+        .split('')
+        .filter(l => word.split(l).length - 1 == 1);
 
     alert(`first nonrepeating letter is ${filtered[0]}`);
 }
@@ -54,9 +56,9 @@ const repeatingLetter = (word) => {
 const evenOdd = () => {
     for (let i = 1; i < 21; i++) {
         if (i % 2 === 0)
-            console.log('even');
+            console.log(`${i}: even`);
         else
-        console.log('odd');
+        console.log(`${i}: odd`);
     }
 }
 
@@ -76,6 +78,7 @@ const filterEven = () => {
 // 11
 const inArray = (item, arr) => {
     let bool = false;
+
     for (const key of arr) {
         if (key === item) {
             bool = true;
@@ -88,6 +91,7 @@ const inArray = (item, arr) => {
 // 12-13
 const sum = (...numbers) => {
     let sum = 0;
+    
     for (const iterator of numbers) {
         sum += iterator;
     }
