@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.center {
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-size: 4rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons > input[type="button"] {
+    padding: 3px 5px;
+    margin: 5px;
+    font-size: 3rem;
+    border-radius: 10px;
+    border-style: solid;
+}
