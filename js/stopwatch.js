@@ -9,7 +9,6 @@ let tInterval;
 const startWatch = () => {
     if (current == States.Paused) {    
         tInterval = setInterval(function stopClicked() {
-            console.log(formatTime(startTime));
             startTime += 10;
             document.getElementById("time").innerHTML = formatTime(startTime);
         },
