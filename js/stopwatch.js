@@ -32,10 +32,10 @@ const clearWatch = () => {
 }
 
 const formatTime = (time) => {
-    let ms = ((time % 1000) / 10).toFixed(0);
-    let seconds = (time / 1000).toFixed(0);
-    let minutes = (time / (1000 * 60)).toFixed(0);
-    let hours = (time / (1000 * 60 * 60)).toFixed(0);
+    let ms = ((time / 10) % 100).toFixed(0);
+    let seconds = (Math.floor(time / 1000)).toFixed(0);
+    let minutes = (Math.floor(time / (1000 * 60))).toFixed(0);
+    let hours = (Math.floor((time / (1000 * 60 * 60)))).toFixed(0);
 
     return `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}:${seconds.padStart(2, '0')}.${ms.padStart(2, '0')}`;
 }
