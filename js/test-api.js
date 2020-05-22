@@ -3,15 +3,22 @@ const ul = document.getElementById('list');
 const amount = document.getElementById('amount');
 const button = document.getElementById('button');
 
+const clearList = (ul) => {
+    while (ul.firstChild) {
+        ul.removeChild(ul.lastChild);
+    }
+}
 
 const getFacts = async (url) => {
     let result = await fetch(url);
-    let facts = await result.json();
+    let facts  = await result.json();
         
     return facts;
 }
 
 const createList = (facts) => {
+    clearList(ul)
+
     for (const item of facts) {
         let li = document.createElement('li');
         li.innerHTML = item.text;
@@ -24,7 +31,11 @@ button.addEventListener('click',async () => {
     let factAmount = amount.value;
 
     if (factAmount !== "") {
-        let facts = await getFacts(url + factAmount);
-        createList(facts);
+        try {
+            let facts = await getFacts(url + factAmount);
+            createList(facts);
+        } catch (error) {
+            alert(error);
+        }
     }
 });
