@@ -29,12 +29,12 @@ const createItem = (itemString, bool = false) => {
 
 function checkboxEvent(e) {
     let item = e.target.parentNode.children[1].innerHTML;
-        if (e.target.checked) {
-            localStorage.setItem(item, "true");
-        }
-        else {
-            localStorage.setItem(item, "false");
-        }
+    if (e.target.checked) {
+        localStorage.setItem(item, "true");
+    }
+    else {
+        localStorage.setItem(item, "false");
+    }
 }
 
 let selectedItem = null;
