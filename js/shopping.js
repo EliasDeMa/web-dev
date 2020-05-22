@@ -14,7 +14,7 @@ const createItem = (itemString, bool = false) => {
 
     let currentDiv = document.getElementById("list");
 
-    label.addEventListener("click", function selectItem() {
+    label.addEventListener("click", () => {
         if (selectedItem === newDiv)
             selectedItem = null;
         else
@@ -22,18 +22,19 @@ const createItem = (itemString, bool = false) => {
 
         highLight();
     })
-    
-    checkbox.addEventListener("change", e => {
-        let item = e.target.parentNode.children[1].innerHTML;
+
+    checkbox.addEventListener("change", checkboxEvent)
+    currentDiv.appendChild(newDiv);
+}
+
+function checkboxEvent(e) {
+    let item = e.target.parentNode.children[1].innerHTML;
         if (e.target.checked) {
             localStorage.setItem(item, "true");
         }
         else {
             localStorage.setItem(item, "false");
         }
-    })
-
-    currentDiv.appendChild(newDiv);
 }
 
 let selectedItem = null;
@@ -48,7 +49,6 @@ if (items) {
 
 const highLight = () => {
     for (const item of document.getElementById("list").children) {
-
         if (item == selectedItem) {
             item.style.background = "lightblue";
             item.style.color = "white";
@@ -62,17 +62,17 @@ const highLight = () => {
 
 const addItem = () => {
     let item = prompt("Which item do you want to add?");
-    localStorage.setItem(item, "false");
-    
-    let itemsInner = localStorage.getItem('items');
-    if (!itemsInner) {
-        localStorage.setItem('items', item);
-    }
-    else {
-        localStorage.setItem('items', itemsInner + ` ${item}`);
-    }
 
     if (item !== null) {
+        localStorage.setItem(item, "false");
+    
+        let itemsInner = localStorage.getItem('items');
+        if (!itemsInner) {
+            localStorage.setItem('items', item);
+        }
+        else {
+            localStorage.setItem('items', itemsInner + ` ${item}`);
+        }
         createItem(item, false);
     }
 }
@@ -88,8 +88,22 @@ const deleteItem = () => {
     }
 }
 
+const clearList = () => {
+    const list = document.getElementById("list");
+    let child = list.lastChild;
+    while(child) {
+        list.removeChild(child);
+        child = list.lastChild
+    }
+
+    localStorage.clear();
+}
+
 const addButton = document.getElementById("add-button");
 addButton.addEventListener("click", addItem);
 
 const deleteButton = document.getElementById("delete-button");
 deleteButton.addEventListener("click", deleteItem);
+
+const clearButton = document.getElementById("clear-button")
+clearButton.addEventListener("click", clearList);
