@@ -20,13 +20,11 @@ const createList = (facts) => {
     }
 }
 
-let factsG;
-
 button.addEventListener('click',async () => {
     let factAmount = amount.value;
 
     if (factAmount !== "") {
-        factsG = await getFacts(url + factAmount);
-        createList(factsG);
+        let facts = await getFacts(url + factAmount);
+        createList(facts);
     }
 });
