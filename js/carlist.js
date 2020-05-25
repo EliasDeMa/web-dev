@@ -53,9 +53,7 @@ const highLight = () => {
  */
 const listReviver = (key, value) => {
     if (!isNaN(key) && key.length > 0) {
-        let car = new Car();
-        Object.assign(car, value);
-        return car;
+        return Object.assign(new Car(), value);
     }
     else if (key.length === 0) {
         return Object.assign(new CarList(), value);
@@ -64,19 +62,20 @@ const listReviver = (key, value) => {
     return value;
 }
 
-let selectedItem = null;
-let edit = false;
 const addButton = document.getElementById('add-button');
 const deleteButton = document.getElementById('delete-button');
 const editButton = document.getElementById('edit-button');
 const submitButton = document.getElementById('submit-btn');
 const outside = document.getElementById('outside');
 const ul = document.getElementById('car-ul');
+
+let selectedItem = null;
+let edit = false;
 const carList = (() => {
     const storage = localStorage.getItem('list');
 
     if (storage) {
-        return JSON.parse(localStorage.getItem('list'), listReviver);
+        return JSON.parse(storage, listReviver);
     } else {
         return new CarList();
     }
@@ -111,16 +110,6 @@ const loadList = (() => {
 
 const updateStorage = () => {
     localStorage.setItem('list', JSON.stringify(carList))
-}
-
-const carPrompts = (makeInput = "", modelInput = "", yearInput = "") => {
-    const make = prompt('enter make of car', makeInput);
-    const model = prompt('enter model of car', modelInput);
-    const year = Number(prompt('enter year of manufacture', yearInput));
-
-    return {
-        make, model, year
-    };
 }
 
 addButton.addEventListener('click', () => {
