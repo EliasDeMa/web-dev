@@ -20,8 +20,8 @@ class CarList {
     /**
      * @param {Car[]} cars
      */
-    constructor() {
-        this.cars = [];
+    constructor(cars = []) {
+        this.cars = cars;
     }
 
     addCar(car) {
@@ -46,6 +46,24 @@ const highLight = () => {
     }
 }
 
+/**
+ * 
+ * @param {string} key 
+ * @param {any} value 
+ */
+const listReviver = (key, value) => {
+    if (!isNaN(key) && key.length > 0) {
+        let car = new Car();
+        Object.assign(car, value);
+        return car;
+    }
+    else if (key.length === 0) {
+        return Object.assign(new CarList(), value);
+    }
+
+    return value;
+}
+
 let selectedItem = null;
 const addButton = document.getElementById('add-button');
 const deleteButton = document.getElementById('delete-button');
@@ -54,16 +72,7 @@ const ul = document.getElementById('car-ul');
 const carList = (() => {
     const storage = localStorage.getItem('list');
     if (storage) {
-        let carListInner = new CarList();
-        Object.assign(carListInner, JSON.parse(storage));
-
-        for (let index = 0; index < carListInner.cars.length; index++) {
-            let car = new Car();
-            Object.assign(car, carListInner.cars[index]);
-            carListInner.cars[index] = car;
-        }
-
-        return carListInner;
+        return JSON.parse(localStorage.getItem('list'), listReviver);
     } else {
         return new CarList();
     }
@@ -125,7 +134,6 @@ deleteButton.addEventListener('click', () => {
 });
 
 editButton.addEventListener('click', () => {
-    // body
     if (selectedItem !== null) {
         const index = Number(selectedItem.getAttribute('id').replace('car-', ''));
         let car = carList.cars[index];
