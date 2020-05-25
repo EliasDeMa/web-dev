@@ -15,6 +15,10 @@ class HawaiiPizza extends Pizza {
   }
 }
 
+const add = (x) => {
+  return y => x + y;
+}
+
 const arrow = () => {
     console.log(this);
 }
