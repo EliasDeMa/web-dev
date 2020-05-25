@@ -68,6 +68,7 @@ let selectedItem = null;
 const addButton = document.getElementById('add-button');
 const deleteButton = document.getElementById('delete-button');
 const editButton = document.getElementById('edit-button');
+const outside = document.getElementById('outside');
 const ul = document.getElementById('car-ul');
 const carList = (() => {
     const storage = localStorage.getItem('list');
@@ -159,4 +160,9 @@ editButton.addEventListener('click', () => {
 
         highLight();
     }
+});
+
+outside.addEventListener('click', () => {
+    selectedItem = null;
+    highLight();
 });
