@@ -5,7 +5,7 @@ class Pizza {
   }
     
   toString() {
-    return this.name;
+    return `${this.name}: ${this.toppings}`;
   }
 }
   
