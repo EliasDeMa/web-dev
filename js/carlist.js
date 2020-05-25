@@ -65,9 +65,12 @@ const listReviver = (key, value) => {
 }
 
 let selectedItem = null;
+let edit = false;
+let submitted = false;
 const addButton = document.getElementById('add-button');
 const deleteButton = document.getElementById('delete-button');
 const editButton = document.getElementById('edit-button');
+const submitButton = document.getElementById('submit-btn');
 const outside = document.getElementById('outside');
 const ul = document.getElementById('car-ul');
 const carList = (() => {
@@ -122,13 +125,8 @@ const carPrompts = (makeInput = "", modelInput = "", yearInput = "") => {
 }
 
 addButton.addEventListener('click', () => {
-    const {make, model, year} = carPrompts();
-
-    let car = new Car(make, model, year);
-    carList.addCar(car);
-
-    updateStorage();
-    ul.appendChild(createLi(car, carList.cars.length-1));
+    edit = false;
+    openForm();
 });
 
 deleteButton.addEventListener('click', () => {
@@ -148,16 +146,12 @@ editButton.addEventListener('click', () => {
         const index = Number(selectedItem.getAttribute('id').replace('car-', ''));
         let car = carList.cars[index];
 
-        const {make, model, year} = carPrompts(car.make, car.model, car.year);
+        document.getElementById('make').value = car.make;
+        document.getElementById('model').value = car.model;
+        document.getElementById('year').value = car.year;
+        edit = true;
 
-        const newCar = new Car(make, model, year);
-        carList.cars[index] = newCar;
-
-        selectedItem.innerHTML = newCar.toString();
-        
-        updateStorage();
-        selectedItem = null;
-
+        openForm();
         highLight();
     }
 });
@@ -166,3 +160,37 @@ outside.addEventListener('click', () => {
     selectedItem = null;
     highLight();
 });
+
+submitButton.addEventListener('click', function () {
+    const make = document.getElementById('make').value;
+    const model = document.getElementById('model').value;
+    const year = document.getElementById('year').value;
+
+    let car = new Car(make, model, year);
+    if (edit) {
+        const index = Number(selectedItem.getAttribute('id').replace('car-', ''));
+        carList.cars[index] = car;
+        selectedItem.innerHTML = car.toString();
+        selectedItem = null;
+        highLight();
+    }
+    else {
+        carList.addCar(car);
+        ul.appendChild(createLi(car, carList.cars.length-1));
+    }
+
+    document.getElementById('make').value = "";
+    document.getElementById('model').value = "";
+    document.getElementById('year').value = "";
+
+    updateStorage(); 
+    closeForm();
+});
+
+function openForm() {
+    document.getElementById("popup-Form").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("popup-Form").style.display = "none";
+} 
