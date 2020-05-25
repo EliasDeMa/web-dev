@@ -66,7 +66,6 @@ const listReviver = (key, value) => {
 
 let selectedItem = null;
 let edit = false;
-let submitted = false;
 const addButton = document.getElementById('add-button');
 const deleteButton = document.getElementById('delete-button');
 const editButton = document.getElementById('edit-button');
@@ -146,9 +145,7 @@ editButton.addEventListener('click', () => {
         const index = Number(selectedItem.getAttribute('id').replace('car-', ''));
         let car = carList.cars[index];
 
-        document.getElementById('make').value = car.make;
-        document.getElementById('model').value = car.model;
-        document.getElementById('year').value = car.year;
+        setFormElements(car.make, car.model, car.year);
         edit = true;
 
         openForm();
@@ -162,27 +159,22 @@ outside.addEventListener('click', () => {
 });
 
 submitButton.addEventListener('click', function () {
-    const make = document.getElementById('make').value;
-    const model = document.getElementById('model').value;
-    const year = document.getElementById('year').value;
-
+    const {make, model, year} = getFormElements();
     let car = new Car(make, model, year);
+
     if (edit) {
         const index = Number(selectedItem.getAttribute('id').replace('car-', ''));
         carList.cars[index] = car;
         selectedItem.innerHTML = car.toString();
         selectedItem = null;
-        highLight();
     }
     else {
         carList.addCar(car);
         ul.appendChild(createLi(car, carList.cars.length-1));
     }
 
-    document.getElementById('make').value = "";
-    document.getElementById('model').value = "";
-    document.getElementById('year').value = "";
-
+    highLight();
+    resetFormElements();
     updateStorage(); 
     closeForm();
 });
@@ -194,3 +186,23 @@ function openForm() {
 function closeForm() {
     document.getElementById("popup-Form").style.display = "none";
 } 
+
+function resetFormElements() {
+    document.getElementById('make').value = "";
+    document.getElementById('model').value = "";
+    document.getElementById('year').value = "";
+}
+
+function getFormElements() {
+    const make = document.getElementById('make').value;
+    const model = document.getElementById('model').value;
+    const year = document.getElementById('year').value;
+
+    return {make, model, year};
+}
+
+function setFormElements(make, model, year) {
+    document.getElementById('make').value = make;
+    document.getElementById('model').value = model;
+    document.getElementById('year').value = year;
+}
