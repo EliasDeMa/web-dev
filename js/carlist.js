@@ -71,6 +71,7 @@ const editButton = document.getElementById('edit-button');
 const ul = document.getElementById('car-ul');
 const carList = (() => {
     const storage = localStorage.getItem('list');
+
     if (storage) {
         return JSON.parse(localStorage.getItem('list'), listReviver);
     } else {
@@ -109,10 +110,18 @@ const updateStorage = () => {
     localStorage.setItem('list', JSON.stringify(carList))
 }
 
+const carPrompts = (makeInput = "", modelInput = "", yearInput = "") => {
+    const make = prompt('enter make of car', makeInput);
+    const model = prompt('enter model of car', modelInput);
+    const year = Number(prompt('enter year of manufacture', yearInput));
+
+    return {
+        make, model, year
+    };
+}
+
 addButton.addEventListener('click', () => {
-    let make = prompt('enter make of car');
-    let model = prompt('enter model of car');
-    let year = Number(prompt('enter year of manufacture')); 
+    const {make, model, year} = carPrompts();
 
     let car = new Car(make, model, year);
     carList.addCar(car);
@@ -138,9 +147,7 @@ editButton.addEventListener('click', () => {
         const index = Number(selectedItem.getAttribute('id').replace('car-', ''));
         let car = carList.cars[index];
 
-        let make = prompt('enter make of car', car.make);
-        let model = prompt('enter model of car', car.model);
-        let year = Number(prompt('enter year of manufacture', car.year)); 
+        const {make, model, year} = carPrompts(car.make, car.model, car.year);
 
         const newCar = new Car(make, model, year);
         carList.cars[index] = newCar;
