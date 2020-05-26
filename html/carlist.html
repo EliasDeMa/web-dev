@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/carlist.js" defer></script>
+    <script type="module" src="../js/index.js"></script>
     <link rel="stylesheet" href="../css/carlist.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container center">
-
-        <div id="inside">
-            
+        <div id="inside">   
             <ul id="car-ul">
                 
-            </ul>
-            
+            </ul>      
         </div>
+
         <div id="outside">
           <div class="content">
             <button id="add-button">Add</button> 
@@ -43,7 +41,7 @@
             <input type="text" id="year" placeholder="">
             
           <button class="btn" id="submit-btn">Submit</button>
-          <button type="submit" class="btn cancel" onclick="closeForm()">Cancel</button>
+          <button type="submit" class="btn cancel" id='cancel-btn'>Cancel</button>
         </div>
       </div>
 </body>
