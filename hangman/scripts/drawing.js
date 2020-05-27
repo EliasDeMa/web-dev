@@ -54,6 +54,6 @@ export const drawRightLeg = ctx => {
     ctx.moveTo(120, 250);
     ctx.lineTo(140, 285);
 
-    ctx.strokeStyle = '#000';
+    ctx.strokeStyle = '#';
     ctx.stroke();
 }

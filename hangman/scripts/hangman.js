@@ -15,7 +15,7 @@ export class HangMan {
     }
 
     guess(letter) {
-        if (this.guessedLetters.indexOf(letter) === -1) {
+        if (this.checkWord(letter) && this.guessedLetters.indexOf(letter) === -1) {
             const positions = this.getPositions(letter);
 
             if (positions.length > 0) {
@@ -28,6 +28,20 @@ export class HangMan {
         }
         
         this.checkState();
+    }
+
+    checkWord(guess) {
+        if (guess.length > 1) {
+            if (guess === this.word) {
+                this.guessed = this.guessed.map(_ => true);
+            } else {
+                this.mistakes++;
+            }
+
+            return false;
+        }
+
+        return true;
     }
 
     checkState() {
