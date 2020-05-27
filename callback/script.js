@@ -16,4 +16,14 @@ const rollADice = (succesCallback, errorCallback) => {
     }
 }
 
+const getPizzas = () => {
+    return new Promise(resolve => {
+        console.log('Pizza deliverer sent.');
+        setTimeout(resolve, 2000)
+    })
+}
+
 rollADice(succes, error);
+
+getPizzas()
+    .then(() => console.log("Pizza's have been delivered"));
