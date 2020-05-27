@@ -1,8 +1,16 @@
 import { HangMan, States } from './hangman.js';
-import { drawGallow } from './drawing.js';
+import * as Drawing from './drawing.js';
 
 const url = 'https://random-word-api.herokuapp.com/word?number=1';
-const draws = [];
+const draws = [ 
+    Drawing.drawGallow, 
+    Drawing.drawHead, 
+    Drawing.drawTorso, 
+    Drawing.drawLeftArm, 
+    Drawing.drawRightArm, 
+    Drawing.drawLeftLeg, 
+    Drawing.drawRightLeg 
+];
 
 const getWord = async (url) => {
     let result = await fetch(url);
@@ -13,12 +21,14 @@ const getWord = async (url) => {
 
 let logWord;
 
-(async () => {
+const loadWord = async () => {
     let word = await getWord(url);
     logWord = new HangMan(word[0]);
     window.h = logWord;
     par.innerHTML = logWord.toString();
-})();
+};
+
+loadWord();
 
 const submitButton = document.getElementById('submit-btn');
 const letter = document.getElementById('input-letter');
@@ -26,13 +36,28 @@ const par = document.getElementById('letters');
 const myCanvas = document.getElementById('hangman-canvas');
 const ctx = myCanvas.getContext('2d');
 
-drawGallow(ctx);
+const clearCanvas = () => {
+    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+}
 
 submitButton.addEventListener('click', () => {
     // body
     logWord.guess(letter.value);
     par.innerHTML = logWord.toString();
+    
+    clearCanvas();
+
     for (let i = 0; i < logWord.mistakes; i++) {
         draws[i](ctx);
+    }
+
+    if (logWord.state === States.Lost) {
+        alert("You Lost");
+        loadWord();
+        clearCanvas();
+    } else if (logWord.state === States.Won) {
+        alert("You Won");
+        loadWord();
+        clearCanvas();
     }
 });
