@@ -67,4 +67,8 @@ export class HangMan {
     toString() {
         return this.guessed.reduce((a, c, i) => c ? a + `${this.word[i]} ` : a + '_ ', '');
     }
+
+    guessedLetterJoin() {
+        return this.guessedLetters.join(', ');
+    }
 }

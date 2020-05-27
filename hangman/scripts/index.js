@@ -21,20 +21,24 @@ const getWord = async (url) => {
 
 let logWord;
 
-const loadWord = async () => {
-    let word = await getWord(url);
-    logWord = new HangMan(word[0]);
-    par.innerHTML = logWord.toString();
-};
 
-loadWord();
 
 const submitButton = document.getElementById('submit-btn');
 const letter = document.getElementById('input-letter');
 const par = document.getElementById('letters');
+const guessed = document.getElementById('guessed');
 const hangContainer = document.getElementById('hangman-container');
 let myCanvas = document.getElementById('hangman-canvas');
 let ctx = myCanvas.getContext('2d');
+
+const loadWord = async () => {
+    let word = await getWord(url);
+    logWord = new HangMan(word[0]);
+    par.innerHTML = logWord.toString();
+    guessed.innerHTML = logWord.guessedLetterJoin();
+};
+
+loadWord();
 
 const resetCanvas = () => {
     myCanvas.remove();
@@ -50,6 +54,7 @@ submitButton.addEventListener('click', () => {
     // body
     logWord.guess(letter.value);
     par.innerHTML = logWord.toString();
+    guessed.innerHTML = logWord.guessedLetterJoin();
 
     resetCanvas();
 

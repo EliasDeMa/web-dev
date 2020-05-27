@@ -18,7 +18,7 @@ export const drawHead = ctx => {
     ctx.stroke(); 
 }
 
-export const drawTorso = (ctx) => {
+export const drawTorso = ctx => {
     ctx.moveTo(120, 190);
     ctx.lineTo(120, 250);
 
