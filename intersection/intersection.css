@@ -1,0 +1,52 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 170vh;
+    width: 100vw;
+}
+
+.body {
+    height: 100%;
+}
+
+.small-box {
+    height: 10%;
+    margin-top: 90%;
+    margin-right: 10%;
+    overflow-y: scroll;
+}
+
+.rectangle {
+    background-color: green;
+    margin: 20% 50% 20% 10%;
+    height: 100%;
+}
+
+#top.yes {
+    position: fixed;
+    text-align: center;
+    font-size: 3rem;
+    left: 0;
+    top: 0;
+    height: 10vh;
+    width: 100vw;
+    background: #8f8;
+    border-color: #5c5;
+}
+  
+#top.no {
+    position: fixed;
+    text-align: center;
+    font-size: 3rem;
+    left: 0;
+    top: 0;
+    height: 10vh;
+    width: 100vw;
+    background: #f88;
+    border-color: #c55;
+}
